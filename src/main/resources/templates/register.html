@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Rejestracja')}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: navbar}"></nav>
+
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <h1 class="h3 fw-bold mb-1">Rejestracja</h1>
+        <p class="text-muted mb-4">Utwórz nowe konto, aby wystawiać aukcje i licytować.</p>
+
+        <div th:if="${registerError}" class="alert alert-danger">
+            <i class="bi bi-exclamation-triangle"></i> <span th:text="${registerError}"></span>
+        </div>
+
+        <form th:action="@{/register}" method="post" th:object="${createUserRequest}">
+            <div class="mb-3">
+                <label class="form-label">Nazwa użytkownika</label>
+                <input type="text" th:field="*{username}" class="form-control"
+                       th:classappend="${#fields.hasErrors('username')} ? 'is-invalid'"
+                       required minlength="4" maxlength="30"/>
+                <div class="invalid-feedback" th:errors="*{username}"></div>
+                <div class="form-text">4–30 znaków</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" th:field="*{email}" class="form-control"
+                       th:classappend="${#fields.hasErrors('email')} ? 'is-invalid'" required/>
+                <div class="invalid-feedback" th:errors="*{email}"></div>
+            </div>
+
+            <div class="row g-3 mb-3">
+                <div class="col-sm-6">
+                    <label class="form-label">Imię</label>
+                    <input type="text" th:field="*{firstName}" class="form-control"
+                           th:classappend="${#fields.hasErrors('firstName')} ? 'is-invalid'" required/>
+                    <div class="invalid-feedback" th:errors="*{firstName}"></div>
+                </div>
+                <div class="col-sm-6">
+                    <label class="form-label">Nazwisko</label>
+                    <input type="text" th:field="*{lastName}" class="form-control"
+                           th:classappend="${#fields.hasErrors('lastName')} ? 'is-invalid'" required/>
+                    <div class="invalid-feedback" th:errors="*{lastName}"></div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">
+                <i class="bi bi-person-plus"></i> Utwórz konto
+            </button>
+        </form>
+
+        <div class="text-center mt-4 text-muted small">
+            Masz już konto?
+            <a th:href="@{/login}" class="text-success fw-semibold text-decoration-none">Zaloguj się</a>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>

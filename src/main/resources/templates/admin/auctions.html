@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Admin — Aukcje')}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: navbar}"></nav>
+<div th:replace="~{fragments/layout :: flashMessages}"></div>
+
+<main class="container py-4">
+    <div class="d-flex align-items-center gap-2 mb-1">
+        <i class="bi bi-shield-check text-success fs-3"></i>
+        <h1 class="h2 fw-bold mb-0">Panel administratora</h1>
+    </div>
+    <p class="text-muted mb-4">Zarządzanie użytkownikami, aukcjami i ofertami.</p>
+
+    <ul class="nav nav-pills mb-4 gap-2">
+        <li class="nav-item"><a class="nav-link" th:href="@{/admin/users}">Użytkownicy</a></li>
+        <li class="nav-item"><a class="nav-link active" th:href="@{/admin/auctions}">Aukcje</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/admin/bids}">Oferty</a></li>
+    </ul>
+
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead>
+            <tr>
+                <th>Tytuł</th>
+                <th>Kategoria</th>
+                <th>Właściciel</th>
+                <th class="text-end">Cena</th>
+                <th>Status</th>
+                <th>Koniec</th>
+                <th class="text-end">Akcje</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="a : ${auctions.content}">
+                <td>
+                    <a th:href="@{/auctions/{ref}(ref=${a.referenceNumber})}"
+                       class="text-success text-decoration-none fw-semibold"
+                       th:text="${a.title}">tytul</a>
+                    <div class="ref-number" th:text="${a.referenceNumber}">REF</div>
+                </td>
+                <td th:text="${a.auctionCategory.name()}">CAT</td>
+                <td class="text-muted" th:text="${a.owner != null} ? ${a.owner.username} : '—'">user</td>
+                <td class="text-end fw-semibold text-success"
+                    th:text="${#numbers.formatDecimal(a.currentPrice, 1, 'POINT', 2, 'COMMA')} + ' PLN'">0</td>
+                <td>
+                    <span class="badge"
+                          th:classappend="${a.auctionStatus.name() == 'ACTIVE'} ? 'badge-active' : 'badge-finished'"
+                          th:text="${a.auctionStatus.name()}">ACTIVE</span>
+                </td>
+                <td class="text-muted small" th:text="${#temporals.format(a.endTime, 'dd-MM-yyyy HH:mm')}">date</td>
+                <td class="text-end">
+                    <form th:if="${a.auctionStatus.name() == 'ACTIVE'}"
+                          th:action="@{/auctions/{ref}/end(ref=${a.referenceNumber})}" method="post"
+                          class="d-inline">
+                        <button class="btn btn-sm btn-outline-secondary" type="submit"
+                                onclick="return confirm('Zakończyć aukcję?')">
+                            <i class="bi bi-stop-circle"></i>
+                        </button>
+                    </form>
+                    <form th:action="@{/auctions/{ref}/delete(ref=${a.referenceNumber})}" method="post"
+                          class="d-inline ms-1">
+                        <button class="btn btn-sm btn-outline-danger" type="submit"
+                                onclick="return confirm('Usunąć aukcję?')">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            <tr th:if="${auctions.totalElements == 0}">
+                <td colspan="7" class="text-center text-muted py-4">Brak aukcji</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <nav th:if="${auctions.totalPages > 1}" class="d-flex justify-content-center mt-3">
+        <ul class="pagination">
+            <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled'">
+                <a class="page-link" th:href="@{/admin/auctions(page=${currentPage - 1})}">Poprzednia</a>
+            </li>
+            <li class="page-item disabled">
+                <span class="page-link" th:text="'Strona ' + (${currentPage} + 1) + ' / ' + ${auctions.totalPages}">1</span>
+            </li>
+            <li class="page-item" th:classappend="${currentPage + 1 >= auctions.totalPages} ? 'disabled'">
+                <a class="page-link" th:href="@{/admin/auctions(page=${currentPage + 1})}">Następna</a>
+            </li>
+        </ul>
+    </nav>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>

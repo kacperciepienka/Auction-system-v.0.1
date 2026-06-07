@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Admin — Użytkownicy')}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: navbar}"></nav>
+<div th:replace="~{fragments/layout :: flashMessages}"></div>
+
+<main class="container py-4">
+    <div class="d-flex align-items-center gap-2 mb-1">
+        <i class="bi bi-shield-check text-success fs-3"></i>
+        <h1 class="h2 fw-bold mb-0">Panel administratora</h1>
+    </div>
+    <p class="text-muted mb-4">Zarządzanie użytkownikami, aukcjami i ofertami.</p>
+
+    <ul class="nav nav-pills mb-4 gap-2">
+        <li class="nav-item"><a class="nav-link active" th:href="@{/admin/users}">Użytkownicy</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/admin/auctions}">Aukcje</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/admin/bids}">Oferty</a></li>
+    </ul>
+
+    <form method="get" th:action="@{/admin/users}" class="filters-card mb-3">
+        <div class="row g-3 align-items-end">
+            <div class="col-md-4">
+                <label class="form-label">Typ konta</label>
+                <select name="accType" class="form-select">
+                    <option value="">Wszystkie</option>
+                    <option th:each="t : ${accTypes}" th:value="${t}" th:text="${t.name()}"
+                            th:selected="${filterAccType != null and filterAccType == t}"></option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-success w-100">Filtruj</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Imię i nazwisko</th>
+                <th>Typ</th>
+                <th class="text-end">Akcje</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="u : ${users.content}">
+                <td class="fw-semibold" th:text="${u.username}">u</td>
+                <td class="text-muted" th:text="${u.email}">e</td>
+                <td th:text="${u.firstName + ' ' + u.lastName}">n</td>
+                <td>
+                    <span class="badge"
+                          th:classappend="${u.accType.name() == 'ADMIN'} ? 'bg-success' : 'bg-secondary'"
+                          th:text="${u.accType.name()}">USER</span>
+                </td>
+                <td class="text-end">
+                    <form th:action="@{/admin/users/{username}/acctype(username=${u.username})}" method="post"
+                          class="d-inline">
+                        <input type="hidden" name="accType"
+                               th:value="${u.accType.name() == 'ADMIN'} ? 'USER' : 'ADMIN'"/>
+                        <button class="btn btn-sm btn-outline-secondary" type="submit">
+                            <i class="bi" th:classappend="${u.accType.name() == 'ADMIN'} ? 'bi-shield-slash' : 'bi-shield-check'"></i>
+                            <span th:text="${u.accType.name() == 'ADMIN'} ? 'USER' : 'ADMIN'">ADMIN</span>
+                        </button>
+                    </form>
+                    <form th:action="@{/admin/users/{username}/delete(username=${u.username})}" method="post"
+                          class="d-inline ms-1">
+                        <button class="btn btn-sm btn-outline-danger" type="submit"
+                                onclick="return confirm('Usunąć użytkownika?')">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            <tr th:if="${users.totalElements == 0}">
+                <td colspan="5" class="text-center text-muted py-4">Brak użytkowników</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <nav th:if="${users.totalPages > 1}" class="d-flex justify-content-center mt-3">
+        <ul class="pagination">
+            <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled'">
+                <a class="page-link" th:href="@{/admin/users(page=${currentPage - 1}, accType=${filterAccType})}">Poprzednia</a>
+            </li>
+            <li class="page-item disabled">
+                <span class="page-link" th:text="'Strona ' + (${currentPage} + 1) + ' / ' + ${users.totalPages}">1</span>
+            </li>
+            <li class="page-item" th:classappend="${currentPage + 1 >= users.totalPages} ? 'disabled'">
+                <a class="page-link" th:href="@{/admin/users(page=${currentPage + 1}, accType=${filterAccType})}">Następna</a>
+            </li>
+        </ul>
+    </nav>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Logowanie')}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: navbar}"></nav>
+
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <h1 class="h3 fw-bold mb-1">Logowanie</h1>
+        <p class="text-muted mb-4">Wpisz nazwę użytkownika, aby się zalogować.</p>
+
+        <div th:if="${loginError}" class="alert alert-danger">
+            <i class="bi bi-exclamation-triangle"></i> <span th:text="${loginError}"></span>
+        </div>
+
+        <form th:action="@{/login}" method="post" th:object="${loginRequest}">
+            <div class="mb-3">
+                <label class="form-label">Nazwa użytkownika</label>
+                <input type="text" th:field="*{username}" class="form-control"
+                       th:classappend="${#fields.hasErrors('username')} ? 'is-invalid'"
+                       placeholder="np. Kac01" required autofocus/>
+                <div class="invalid-feedback" th:errors="*{username}"></div>
+            </div>
+            <button type="submit" class="btn btn-success w-100">
+                <i class="bi bi-box-arrow-in-right"></i> Zaloguj
+            </button>
+        </form>
+
+        <div class="text-center mt-4 text-muted small">
+            Nie masz konta?
+            <a th:href="@{/register}" class="text-success fw-semibold text-decoration-none">Zarejestruj się</a>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>

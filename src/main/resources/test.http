@@ -1,0 +1,953 @@
+### ----------------------------------------
+### |           USER CONTROLLER            |
+### ----------------------------------------
+
+### ================= POST =================
+### User register 1
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Kac01",
+  "email": "kacper.opp@wp.pl",
+  "firstName": "Kacper",
+  "lastName": "Witczak"
+}
+
+### User register 2
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "michu2",
+  "email": "michalk3@gmail.com",
+  "firstName": "Michal",
+  "lastName": "Brzozowski"
+}
+
+### User register 3
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Annika33",
+  "email": "ania1002@gmail.com",
+  "firstName": "Ania",
+  "lastName": "Grzyb"
+}
+
+### User register 4 edge value of username
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Lax3",
+  "email": "laksik3@gmail.com",
+  "firstName": "Lukasz",
+  "lastName": "Michalski"
+}
+
+### User register 5
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Tommy55",
+  "email": "tommy55@gmail.com",
+  "firstName": "Tomasz",
+  "lastName": "Krawczyk"
+}
+
+### User register 6
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Marta88",
+  "email": "marta88@gmail.com",
+  "firstName": "Marta",
+  "lastName": "Nowak"
+}
+
+### User register 7
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Kinga77",
+  "email": "kinga77@gmail.com",
+  "firstName": "Kinga",
+  "lastName": "Lis"
+}
+
+### User register 8
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Bartek44",
+  "email": "bartek44@gmail.com",
+  "firstName": "Bartosz",
+  "lastName": "Wojcik"
+}
+
+### User register 9
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Julia66",
+  "email": "julia66@gmail.com",
+  "firstName": "Julia",
+  "lastName": "Mazur"
+}
+
+### User register 10
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Patryk22",
+  "email": "patryk22@gmail.com",
+  "firstName": "Patryk",
+  "lastName": "Kaczmarek"
+}
+
+### User register 11
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Olka99",
+  "email": "olka99@gmail.com",
+  "firstName": "Aleksandra",
+  "lastName": "Grabowska"
+}
+
+### User register 12
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Mateo21",
+  "email": "mateo21@gmail.com",
+  "firstName": "Mateusz",
+  "lastName": "Zielinski"
+}
+
+### User register 13
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Damian11",
+  "email": "damian11@gmail.com",
+  "firstName": "Damian",
+  "lastName": "Szymanski"
+}
+
+### User register 14
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Karola7",
+  "email": "karola7@gmail.com",
+  "firstName": "Karolina",
+  "lastName": "Dabrowska"
+}
+
+### User register 15
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Radek90",
+  "email": "radek90@gmail.com",
+  "firstName": "Radoslaw",
+  "lastName": "Pawlak"
+}
+
+### User register 16
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Natalia5",
+  "email": "natalia5@gmail.com",
+  "firstName": "Natalia",
+  "lastName": "Michalak"
+}
+
+### User register 17
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Sebix33",
+  "email": "sebix33@gmail.com",
+  "firstName": "Sebastian",
+  "lastName": "Kubiak"
+}
+
+### User register 18
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Monika12",
+  "email": "monika12@gmail.com",
+  "firstName": "Monika",
+  "lastName": "Walczak"
+}
+
+### User register 19
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "IgorX9",
+  "email": "igorx9@gmail.com",
+  "firstName": "Igor",
+  "lastName": "Adamski"
+}
+
+### User register 20
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Werka20",
+  "email": "werka20@gmail.com",
+  "firstName": "Weronika",
+  "lastName": "Kalinowska"
+}
+
+### User register 21
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Hubi77",
+  "email": "hubi77@gmail.com",
+  "firstName": "Hubert",
+  "lastName": "Czarnecki"
+}
+
+### User register 22
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Paula01",
+  "email": "paula01@gmail.com",
+  "firstName": "Paulina",
+  "lastName": "Jaworska"
+}
+
+### User register 23
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Maciek88",
+  "email": "maciek88@gmail.com",
+  "firstName": "Maciej",
+  "lastName": "Kurek"
+}
+
+### User register 24
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Nikola44",
+  "email": "nikola44@gmail.com",
+  "firstName": "Nikola",
+  "lastName": "Urban"
+}
+
+### User register with empty username (invalid)
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "",
+  "email": "emptyusername@gmail.com",
+  "firstName": "Empty",
+  "lastName": "User"
+}
+
+### User register 1 invalid values
+POST http://localhost:8080/api/v0.1/users/register
+Content-Type: application/json
+
+{
+  "username": "Sub",
+  "email": "Lupicom",
+  "firstName": "Pawel",
+  "lastName": "Pawlak"
+}
+
+### Admin 1 register
+POST http://localhost:8080/api/v0.1/admin/users/register
+Content-Type: application/json
+
+{
+  "username": "Admin1",
+  "email": "admin@gmail.com",
+  "firstName": "Admin1",
+  "lastName": "Adminowski1"
+}
+
+### User 1 login
+POST http://localhost:8080/api/v0.1/users/login
+Content-Type: application/json
+
+{
+  "username": "Kac01"
+}
+
+### Admin 1 login
+POST http://localhost:8080/api/v0.1/admin/users/login
+Content-Type: application/json
+
+{
+  "username": "Admin1"
+}
+
+### Login but username does not exist
+POST http://localhost:8080/api/v0.1/users/login
+Content-Type: application/json
+
+{
+  "username": "NoUser123"
+}
+
+### ================= DELETE =================
+### User 1 delete
+DELETE http://localhost:8080/api/v0.1/admin/users/Marta88
+
+### User 10 delete
+DELETE http://localhost:8080/api/v0.1/users/Patryk22
+
+### User delete but user does not exists
+DELETE http://localhost:8080/api/v0.1/admin/users/Alucardzik
+
+### ================== PUT ===================
+### User 3 change username
+PUT http://localhost:8080/api/v0.1/users/Annika33/username?newUsername=ankaBanka4
+
+### User 3 change username but username is the same
+PUT http://localhost:8080/api/v0.1/users/ankaBanka4/username?newUsername=ankaBanka4
+
+### User 3 change username but thi username already exist
+PUT http://localhost:8080/api/v0.1/users/ankaBanka4/username?newUsername=Lax3
+
+
+### User 3 change email
+PUT http://localhost:8080/api/v0.1/users/ankaBanka4/email?newEmail=anka3@wp.pl
+
+### User 3 change email but same emails
+PUT http://localhost:8080/api/v0.1/users/ankaBanka4/email?newEmail=anka3@wp.pl
+
+### User 3 change email but email already exist
+PUT http://localhost:8080/api/v0.1/users/ankaBanka4/email?newEmail=laksik3@gmail.com
+
+
+### User 4 change acc type
+PUT http://localhost:8080/api/v0.1/admin/users/Lax3/accType?accType=ADMIN
+
+
+### ================== GET ===================
+### Get as user
+GET http://localhost:8080/api/v0.1/users/michu2
+
+### Get as admin
+GET http://localhost:8080/api/v0.1/admin/users/michu2
+
+### Get by email as admin
+GET http://localhost:8080/api/v0.1/admin/users/email/laksik3@gmail.com
+// nie da sie sprawdzić po numerze klienta bo jest losowo generowany
+### Get all users as user
+GET http://localhost:8080/api/v0.1/users
+
+### Get all users as admin
+GET http://localhost:8080/api/v0.1/admin/users
+
+### Get all users by Acc type as admin
+GET http://localhost:8080/api/v0.1/admin/users?accType=USER
+
+### Get all users By first name as user
+GET http://localhost:8080/api/v0.1/users?firstName=Lukasz
+
+### Get all users By first name as admin
+GET http://localhost:8080/api/v0.1/admin/users?firstName=Lukasz
+
+### Get all users By last name as user
+GET http://localhost:8080/api/v0.1/users?lastName=Grzyb
+
+### Get all users By last name as admin
+GET http://localhost:8080/api/v0.1/admin/users?lastName=Grzyb
+
+### Get me as user
+GET http://localhost:8080/api/v0.1/users/me?username=michu2
+
+### Get me as admin
+GET http://localhost:8080/api/v0.1/admin/users/me?username=Admin1
+
+### Get all users sorted by username ascending
+GET http://localhost:8080/api/v0.1/users?page=0&size=10&sort=username,asc
+
+### Get all users sorted by email descending
+GET http://localhost:8080/api/v0.1/users?page=0&size=10&sort=email,desc
+
+### Get users by first name sorted by username ascending
+GET http://localhost:8080/api/v0.1/users?firstName=Lukasz&page=0&size=10&sort=username,asc
+
+### Get users second page with small size
+GET http://localhost:8080/api/v0.1/users?page=1&size=3&sort=username,asc
+
+### Get user but username does not exist
+GET http://localhost:8080/api/v0.1/users/NoUser123
+
+### Get users second page with small size
+GET http://localhost:8080/api/v0.1/users?page=1&size=3&sort=username,asc
+
+
+
+### ----------------------------------------
+### |         AUCTION CONTROLLER           |
+### ----------------------------------------
+
+### ================= POST =================
+### Add new auction 1 as User
+POST http://localhost:8080/api/v0.1/auctions/user/Mateo21
+Content-Type: application/json
+
+{
+  "title": "Obraz olejny na płótnie",
+  "description": "Pejzaż, wymiary 50x70, sygnowany przez autora",
+  "auctionCategory": "ART",
+  "startingPrice": 75.00
+}
+
+### Add new auction 2 as User
+POST http://localhost:8080/api/v0.1/auctions/user/Maciek88
+Content-Type: application/json
+
+{
+  "title": "Wazon ceramiczny ręcznie robiony",
+  "description": "Styl loft, unikalny wzór, bez pęknięć",
+  "auctionCategory": "ART",
+  "startingPrice": 20.00
+}
+
+### Add new auction 3 as User
+POST http://localhost:8080/api/v0.1/auctions/user/IgorX9
+Content-Type: application/json
+
+{
+  "title": "Plakat kolekcjonerski limitowana edycja",
+  "description": "Numerowany, stan gabinetowy, bezpieczna tuba",
+  "auctionCategory": "ART",
+  "startingPrice": 35.00
+}
+
+### Add new auction 4 as User
+POST http://localhost:8080/api/v0.1/auctions/user/Tommy55
+Content-Type: application/json
+
+{
+  "title": "Alufelgi 17 cali 5x112",
+  "description": "Uniwersalne, czarne, łatwy montaż, nieużywane",
+  "auctionCategory": "CAR",
+  "startingPrice": 400.00
+}
+
+### Add new auction 5 as User
+POST http://localhost:8080/api/v0.1/auctions/user/ankaBanka4
+Content-Type: application/json
+
+{
+  "title": "Pokrowce na fotele skórzane",
+  "description": "Uniwersalne, czarne, łatwy montaż, nieużywane",
+  "auctionCategory": "CAR",
+  "startingPrice": 45.00
+}
+
+### Add new auction 6 as User
+POST http://localhost:8080/api/v0.1/auctions/user/Radek90
+Content-Type: application/json
+
+{
+  "title": "Zestaw kluczy nasadowych Yato",
+  "description": "94 elementy, solidna walizka, brak uszkodzeń",
+  "auctionCategory": "CAR",
+  "startingPrice": 65.00
+}
+
+### Add new auction 7 as User
+POST http://localhost:8080/api/v0.1/auctions/user/Paula01
+Content-Type: application/json
+
+{
+  "title": "Wideorejestrator samochodowy 4K Mio",
+  "description": "Przód i tył, karta 64GB gratis",
+  "auctionCategory": "CAR",
+  "startingPrice": 110.00
+}
+
+### Add new auction 8 as User
+POST http://localhost:8080/api/v0.1/auctions/user/Damian11
+Content-Type: application/json
+
+{
+  "title": "Klasyczny trencz damski Zara",
+  "description": "Klasyczny beż, rozmiar S, jak nowy",
+  "auctionCategory": "FASHION",
+  "startingPrice": 40.00
+}
+
+### Add new auction 9 as User
+POST http://localhost:8080/api/v0.1/auctions/user/Olka99
+Content-Type: application/json
+
+{
+  "title": "Zegarek męski Tommy Hilfiger.",
+  "description": "Elegancki, skórzany pasek, nowa bateria",
+  "auctionCategory": "FASHION",
+  "startingPrice": 90.00
+}
+
+### Add new auction 10 as User
+POST http://localhost:8080/api/v0.1/auctions/user/Julia66
+Content-Type: application/json
+
+{
+  "title": "Kurtka puchowa North Face",
+  "description": "Bardzo ciepła, rozmiar M, kolor czarny",
+  "auctionCategory": "FASHION",
+  "startingPrice": 150.00
+}
+
+### Add new auction 11 as User
+POST http://localhost:8080/api/v0.1/auctions/user/Nikola44
+Content-Type: application/json
+
+{
+  "title": "Komplet pościeli satynowej 200x220",
+  "description": "Nowy, 100% bawełna, wzór geometryczny",
+  "auctionCategory": "HOME",
+  "startingPrice": 30.00
+}
+
+### Add new auction 12 as User
+POST http://localhost:8080/api/v0.1/auctions/user/Sebix33
+Content-Type: application/json
+
+{
+  "title": "Ekspres ciśnieniowy DeLonghi Magnifica",
+  "description": "Świeżo po serwisie, pyszna kawa",
+  "auctionCategory": "HOME",
+  "startingPrice": 300.00
+}
+
+### Add new auction 13 as User
+POST http://localhost:8080/api/v0.1/auctions/user/Hubi77
+Content-Type: application/json
+
+{
+  "title": "Konsola PlayStation 5 Slim",
+  "description": "Nowa, fabrycznie zapakowana, 1TB pamięci",
+  "auctionCategory": "ELECTRONICS",
+  "startingPrice": 850.00
+}
+
+### Add new auction 14 as User
+POST http://localhost:8080/api/v0.1/auctions/user/Mateo21
+Content-Type: application/json
+
+{
+  "title": "Słuchawki bezprzewodowe Sony WH-1000XM4",
+  "description": "Świetna redukcja szumów, etui w zestawie",
+  "auctionCategory": "ELECTRONICS",
+  "startingPrice": 250.00
+}
+
+### Add new auction 15 as User
+POST http://localhost:8080/api/v0.1/auctions/user/Karola7
+Content-Type: application/json
+
+{
+  "title": "Paleta Anastasia Beverly",
+  "description": "Oryginalna, użyta dwa razy, piękne kolory",
+  "auctionCategory": "BEAUTY",
+  "startingPrice": 45.00
+}
+
+### Add new auction 16 as User
+POST http://localhost:8080/api/v0.1/auctions/user/Bartek44
+Content-Type: application/json
+
+{
+  "title": "Prostownica Dyson Corrale",
+  "description": "Stan idealny, komplet akcesoriów, ładowarka",
+  "auctionCategory": "BEAUTY",
+  "startingPrice": 550.00
+}
+
+### Add new auction 17 as User
+POST http://localhost:8080/api/v0.1/auctions/user/Marta88
+Content-Type: application/json
+
+{
+  "title": "Perfumy Dior Sauvage",
+  "description": "Flakon 100ml, ubytek tylko 5ml",
+  "auctionCategory": "BEAUTY",
+  "startingPrice": 100.00
+}
+
+### Add new auction 1 as Admin
+POST http://localhost:8080/api/v0.1/admin/auctions/user/Admin1
+Content-Type: application/json
+
+{
+  "title": "Torebka skórzana Michael Kors",
+  "description": "Oryginalna, czarna skóra, drobne ślady użytkowania",
+  "auctionCategory": "FASHION",
+  "startingPrice": 120.00
+}
+
+### Add new auction 2 as Admin
+POST http://localhost:8080/api/v0.1/admin/auctions/user/Admin1
+Content-Type: application/json
+
+{
+  "title": "Robot sprzątający iRobot Roomba",
+  "description": "Używany, w pełni sprawny, czyści dywany",
+  "auctionCategory": "HOME",
+  "startingPrice": 180.00
+}
+
+### Add new auction 3 as Admin
+POST http://localhost:8080/api/v0.1/admin/auctions/user/Admin1
+Content-Type: application/json
+
+{
+  "title": "Smartfon iPhone 13 Pro 128GB",
+  "description": "Stan idealny, bateria 88%, bez rys.",
+  "auctionCategory": "ELECTRONICS",
+  "startingPrice": 999.00
+}
+
+### ================= DELETE =================
+### Delete auction by reference number as admin
+DELETE http://localhost:8080/api/v0.1/admin/auctions/{{auctionRef}}
+
+### Delete auction but auction does not exist
+DELETE http://localhost:8080/api/v0.1/admin/auctions/NO-AUCTION-123
+
+
+### ================== PUT ===================
+### Change auction title as user
+PUT http://localhost:8080/api/v0.1/auctions/{{auctionRef}}/title?newTitle=Nowy tytuł aukcji
+
+### Change auction title as admin
+PUT http://localhost:8080/api/v0.1/admin/auctions/{{auctionRef}}/title?newTitle=DeLonghi Magnifica ekspres ciśnieniowy do kawy
+
+### Change auction title invalid blank
+PUT http://localhost:8080/api/v0.1/auctions/{{auctionRef}}/title?newTitle=
+
+
+### Change auction description as user
+PUT http://localhost:8080/api/v0.1/auctions/{{auctionRef}}/description?newDescription=Profesjonalnie odkamieniony, gotowy do użycia
+
+### Change auction description as admin
+PUT http://localhost:8080/api/v0.1/admin/auctions/{{auctionRef}}/description?newDescription=Profesjonalnie odkamieniony, sprawdzony technicznie
+
+### Change auction category as user
+PUT http://localhost:8080/api/v0.1/auctions/{{auctionRef}}/category?category=ELECTRONICS
+
+### Change auction category as admin
+PUT http://localhost:8080/api/v0.1/admin/auctions/{{auctionRef}}/category?category=HOME
+
+### Change auction starting price as user
+PUT http://localhost:8080/api/v0.1/auctions/{{auctionRef}}/startingPrice?newStartingPrice=100.00
+
+### Change auction starting price as admin
+PUT http://localhost:8080/api/v0.1/admin/auctions/{{auctionRef}}/startingPrice?newStartingPrice=120.00
+
+### End auction earlier as user
+PUT http://localhost:8080/api/v0.1/auctions/{{auctionRef}}/end
+
+### End auction earlier as admin
+PUT http://localhost:8080/api/v0.1/admin/auctions/{{auctionRef}}/end
+
+
+### ================== GET ===================
+### Get auction by reference number as user
+GET http://localhost:8080/api/v0.1/auctions/{{auctionRef}}
+
+### Get auction by reference number as admin
+GET http://localhost:8080/api/v0.1/admin/auctions/{{auctionRef}}
+
+### Get auction but reference number does not exist
+GET http://localhost:8080/api/v0.1/auctions/NO-AUCTION-123
+
+### Get all auctions as user
+GET http://localhost:8080/api/v0.1/auctions
+
+### Get all auctions as admin
+GET http://localhost:8080/api/v0.1/admin/auctions
+
+### Get auctions paginated and sorted by current price ascending
+GET http://localhost:8080/api/v0.1/auctions?page=0&size=5&sort=currentPrice,asc
+
+### Get auctions sorted by title descending
+GET http://localhost:8080/api/v0.1/auctions?page=0&size=10&sort=title,desc
+
+### Get auctions by title as user
+GET http://localhost:8080/api/v0.1/auctions?title=Konsola
+
+### Get auctions by title as admin
+GET http://localhost:8080/api/v0.1/admin/auctions?title=Konsola
+
+### Get auctions by category as user
+GET http://localhost:8080/api/v0.1/auctions?category=ELECTRONICS
+
+### Get auctions by category as admin
+GET http://localhost:8080/api/v0.1/admin/auctions?category=CAR
+
+### Get auctions by max current price as user
+GET http://localhost:8080/api/v0.1/auctions?maxCurrentPrice=100.00
+
+### Get auctions by max current price as admin
+GET http://localhost:8080/api/v0.1/admin/auctions?maxCurrentPrice=300.00
+
+### Get auctions by min current price as user
+GET http://localhost:8080/api/v0.1/auctions?minCurrentPrice=100.00
+
+### Get auctions by min current price as admin
+GET http://localhost:8080/api/v0.1/admin/auctions?minCurrentPrice=500.00
+
+### Get auctions by current price between as user
+GET http://localhost:8080/api/v0.1/auctions?minCurrentPrice=50.00&maxCurrentPrice=300.00
+
+### Get auctions by current price between as admin
+GET http://localhost:8080/api/v0.1/admin/auctions?minCurrentPrice=100.00&maxCurrentPrice=1000.00
+
+### Get auctions by start time after as user
+GET http://localhost:8080/api/v0.1/auctions?startTimeAfter=2026-06-01T00:00:00
+
+### Get auctions by start time before as admin
+GET http://localhost:8080/api/v0.1/admin/auctions?startTimeBefore=2030-01-01T00:00:00
+
+### Get auctions by start time between as user
+GET http://localhost:8080/api/v0.1/auctions?startTimeAfter=2026-01-01T00:00:00&startTimeBefore=2030-01-01T00:00:00
+
+### Get auctions by end time after as user
+GET http://localhost:8080/api/v0.1/auctions?endTimeAfter=2026-01-01T00:00:00
+
+### Get auctions by end time before as admin
+GET http://localhost:8080/api/v0.1/admin/auctions?endTimeBefore=2030-01-01T00:00:00
+
+### Get auctions by end time between as user
+GET http://localhost:8080/api/v0.1/auctions?endTimeAfter=2026-01-01T00:00:00&endTimeBefore=2030-01-01T00:00:00
+
+### Get auctions by owner username as user
+GET http://localhost:8080/api/v0.1/auctions?ownerUsername=IgorX9
+
+### Get auctions by owner username as admin
+GET http://localhost:8080/api/v0.1/admin/auctions?ownerUsername=IgorX9
+
+### Get auctions by owner user number as admin
+GET http://localhost:8080/api/v0.1/admin/auctions?userNumber={{ownerUserNumber}}
+
+### Get auctions by status as admin
+GET http://localhost:8080/api/v0.1/admin/auctions?auctionStatus=ACTIVE
+
+### Get finished auctions as admin
+GET http://localhost:8080/api/v0.1/admin/auctions?auctionStatus=FINISHED
+
+
+
+### ----------------------------------------
+### |            BID CONTROLLER            |
+### ----------------------------------------
+
+### ================= POST =================
+### Add bid 1 as user
+POST http://localhost:8080/api/v0.1/bids/auction/{{referenceNumber}}?username=Kinga77
+Content-Type: application/json
+
+{
+  "amount": 100.00
+}
+
+### Add bid 2 as user
+POST http://localhost:8080/api/v0.1/bids/auction/{{referenceNumber}}?username=Mateo21
+Content-Type: application/json
+
+{
+  "amount": 150.00
+}
+
+### Add bid 3 as user
+POST http://localhost:8080/api/v0.1/bids/auction/{{referenceNumber}}?username=Julia66
+Content-Type: application/json
+
+{
+  "amount": 220.00
+}
+
+### Add bid 4 as admin
+POST http://localhost:8080/api/v0.1/admin/bids/auction/{{referenceNumber}}?username=Admin1
+Content-Type: application/json
+
+{
+  "amount": 300.00
+}
+
+### Add bid lower than current price
+POST http://localhost:8080/api/v0.1/bids/auction/{{referenceNumber}}?username=Tommy55
+Content-Type: application/json
+
+{
+  "amount": 50.00
+}
+
+### Add invalid negative bid
+POST http://localhost:8080/api/v0.1/bids/auction/{{referenceNumber}}?username=IgorX9
+Content-Type: application/json
+
+{
+  "amount": -10.00
+}
+
+
+### Owner tries to bid on own auction
+POST http://localhost:8080/api/v0.1/bids/auction/{{referenceNumber}}?username=Mateo21
+Content-Type: application/json
+
+{
+  "amount": 999.00
+}
+
+
+### ================== GET USER ===================
+
+### Get bid by id as user
+GET http://localhost:8080/api/v0.1/bids/{{bidId}}
+
+### Get bids by bidder username
+GET http://localhost:8080/api/v0.1/bids?bidderUsername=Kinga77
+
+### Get bids by bidder username sorted ascending by amount
+GET http://localhost:8080/api/v0.1/bids?bidderUsername=Kinga77&page=0&size=10&sort=amount,asc
+
+### Get bids by bidder username and max amount
+GET http://localhost:8080/api/v0.1/bids?bidderUsername=Julia66&maxAmount=500
+
+### Get bids by bidder username and min amount
+GET http://localhost:8080/api/v0.1/bids?bidderUsername=Julia66&minAmount=100
+
+### Get bids by bidder username and amount between
+GET http://localhost:8080/api/v0.1/bids?bidderUsername=Julia66&minAmount=100&maxAmount=500
+
+### Get bids by bidder username and exact bid time
+GET http://localhost:8080/api/v0.1/bids?bidderUsername=Julia66&bidTime=2026-01-01T00:00:00
+
+### Get bids by bidder username and bid time after
+GET http://localhost:8080/api/v0.1/bids?bidderUsername=Julia66&bidTimeAfter=2026-01-01T00:00:00
+
+### Get bids by bidder username and bid time before
+GET http://localhost:8080/api/v0.1/bids?bidderUsername=Julia66&bidTimeBefore=2030-01-01T00:00:00
+
+### Get bids by bidder username and bid time between
+GET http://localhost:8080/api/v0.1/bids?bidderUsername=Julia66&bidTimeAfter=2026-01-01T00:00:00&bidTimeBefore=2030-01-01T00:00:00
+
+### Get bids by auction reference number
+GET http://localhost:8080/api/v0.1/bids?auctionReferenceNumber={{auctionRef1}}
+
+### Get bids by auction title
+GET http://localhost:8080/api/v0.1/bids?auctionTitle=PlayStation
+
+### Get bid that does not exist
+GET http://localhost:8080/api/v0.1/bids/NO-BID-123
+
+
+
+### ================== GET ADMIN ===================
+
+### Get bid by id as admin
+GET http://localhost:8080/api/v0.1/admin/bids/{{bidId}}
+
+### Get all bids as admin
+GET http://localhost:8080/api/v0.1/admin/bids
+
+### Get all bids sorted ascending by amount
+GET http://localhost:8080/api/v0.1/admin/bids?page=0&size=10&sort=amount,asc
+
+### Get all bids sorted descending by bid time
+GET http://localhost:8080/api/v0.1/admin/bids?page=0&size=10&sort=bidTime,desc
+
+### Get second page of bids
+GET http://localhost:8080/api/v0.1/admin/bids?page=1&size=5&sort=amount,desc
+
+### Get bids by bidder username
+GET http://localhost:8080/api/v0.1/admin/bids?bidderUsername=Kinga77
+
+### Get bids by user number
+GET http://localhost:8080/api/v0.1/admin/bids?userNumber={{userNumber}}
+
+### Get bids with amount lower than 500
+GET http://localhost:8080/api/v0.1/admin/bids?amountMax=500
+
+### Get bids with amount greater than 100
+GET http://localhost:8080/api/v0.1/admin/bids?amountMin=100
+
+### Get bids between amounts
+GET http://localhost:8080/api/v0.1/admin/bids?amountMin=100&amountMax=500
+
+### Get bids by username and max amount
+GET http://localhost:8080/api/v0.1/admin/bids?bidderUsername=Julia66&amountMax=500
+
+### Get bids by username and min amount
+GET http://localhost:8080/api/v0.1/admin/bids?bidderUsername=Julia66&amountMin=100
+
+### Get bids by username and amount between
+GET http://localhost:8080/api/v0.1/admin/bids?bidderUsername=Julia66&amountMin=100&amountMax=500
+
+### Get bids by exact bid time
+GET http://localhost:8080/api/v0.1/admin/bids?bidTime=2026-01-01T00:00:00
+
+### Get bids after specific date
+GET http://localhost:8080/api/v0.1/admin/bids?bidTimeAfter=2026-01-01T00:00:00
+
+### Get bids before specific date
+GET http://localhost:8080/api/v0.1/admin/bids?bidTimeBefore=2030-01-01T00:00:00
+
+### Get bids between dates
+GET http://localhost:8080/api/v0.1/admin/bids?bidTimeAfter=2026-01-01T00:00:00&bidTimeBefore=2030-01-01T00:00:00
+
+### Get bids by username and exact bid time
+GET http://localhost:8080/api/v0.1/admin/bids?bidderUsername=Julia66&bidTime=2026-01-01T00:00:00
+
+### Get bids by username and bid time after
+GET http://localhost:8080/api/v0.1/admin/bids?bidderUsername=Julia66&bidTimeAfter=2026-01-01T00:00:00
+
+### Get bids by username and bid time before
+GET http://localhost:8080/api/v0.1/admin/bids?bidderUsername=Julia66&bidTimeBefore=2030-01-01T00:00:00
+
+### Get bids by username and bid time between
+GET http://localhost:8080/api/v0.1/admin/bids?bidderUsername=Julia66&bidTimeAfter=2026-01-01T00:00:00&bidTimeBefore=2030-01-01T00:00:00
+
+### Get bids by auction reference number
+GET http://localhost:8080/api/v0.1/admin/bids?auctionReferenceNumber={{auctionRef1}}
+
+### Get bids by auction title
+GET http://localhost:8080/api/v0.1/admin/bids?title=PlayStation
+
+### Get admin bid that does not exist
+GET http://localhost:8080/api/v0.1/admin/bids/NO-BID-123

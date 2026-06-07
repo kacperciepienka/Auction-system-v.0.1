@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(pageTitle)">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title th:text="${pageTitle} ?: 'AukcjaHub'">AukcjaHub</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Local stylesheet -->
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+
+<!-- ====================== NAVBAR ====================== -->
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold d-flex align-items-center" th:href="@{/}">
+            <span class="brand-badge me-2"><i class="bi bi-hammer"></i></span>
+            AukcjaHub
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" th:href="@{/}">Aukcje</a></li>
+                <li class="nav-item" th:if="${currentUser != null}">
+                    <a class="nav-link" th:href="@{/account}">Moje konto</a>
+                </li>
+                <li class="nav-item" th:if="${currentUser != null and currentUser.accType.name() == 'ADMIN'}">
+                    <a class="nav-link text-success fw-semibold" th:href="@{/admin}">
+                        <i class="bi bi-shield-check"></i> Admin
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item" th:if="${currentUser != null}">
+                    <a class="btn btn-success me-2" th:href="@{/auctions/new}">
+                        <i class="bi bi-plus-lg"></i> Wystaw aukcję
+                    </a>
+                </li>
+                <li class="nav-item" th:if="${currentUser != null}">
+                    <span class="navbar-text me-3">
+                        <i class="bi bi-person-circle"></i>
+                        <span th:text="${currentUser.username}">user</span>
+                        <span class="badge bg-success ms-1" th:if="${currentUser.accType.name() == 'ADMIN'}">ADMIN</span>
+                    </span>
+                </li>
+                <li class="nav-item" th:if="${currentUser != null}">
+                    <form th:action="@{/logout}" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-outline-secondary btn-sm">
+                            <i class="bi bi-box-arrow-right"></i> Wyloguj
+                        </button>
+                    </form>
+                </li>
+                <li class="nav-item" th:if="${currentUser == null}">
+                    <a class="btn btn-outline-secondary me-2" th:href="@{/login}">Logowanie</a>
+                </li>
+                <li class="nav-item" th:if="${currentUser == null}">
+                    <a class="btn btn-success" th:href="@{/register}">Rejestracja</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ====================== FLASH MESSAGES ====================== -->
+<div th:fragment="flashMessages" class="container mt-3">
+    <div th:if="${success}" class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle"></i> <span th:text="${success}"></span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <div th:if="${error}" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle"></i> <span th:text="${error}"></span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+</div>
+
+<!-- ====================== FOOTER ====================== -->
+<footer th:fragment="footer" class="bg-white border-top mt-5 py-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-muted small">
+                © <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2026</span>
+                AukcjaHub — Projekt zaliczeniowy "Tworzenie usług sieciowych REST"
+            </div>
+            <div class="col-md-6 text-md-end small text-muted">
+                <a class="text-decoration-none text-muted me-3" href="/swagger-ui/index.html">Swagger / REST API</a>
+                <a class="text-decoration-none text-muted" href="/h2-console">H2 Console</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ====================== JS ====================== -->
+<th:block th:fragment="scripts">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</th:block>
+</html>

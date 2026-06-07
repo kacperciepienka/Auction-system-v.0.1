@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Admin — Oferty')}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: navbar}"></nav>
+<div th:replace="~{fragments/layout :: flashMessages}"></div>
+
+<main class="container py-4">
+    <div class="d-flex align-items-center gap-2 mb-1">
+        <i class="bi bi-shield-check text-success fs-3"></i>
+        <h1 class="h2 fw-bold mb-0">Panel administratora</h1>
+    </div>
+    <p class="text-muted mb-4">Zarządzanie użytkownikami, aukcjami i ofertami.</p>
+
+    <ul class="nav nav-pills mb-4 gap-2">
+        <li class="nav-item"><a class="nav-link" th:href="@{/admin/users}">Użytkownicy</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/admin/auctions}">Aukcje</a></li>
+        <li class="nav-item"><a class="nav-link active" th:href="@{/admin/bids}">Oferty</a></li>
+    </ul>
+
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead>
+            <tr>
+                <th>Bid ID</th>
+                <th>Licytujący</th>
+                <th>Aukcja</th>
+                <th class="text-end">Kwota</th>
+                <th>Data</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="b : ${bids.content}">
+                <td class="ref-number" th:text="${b.bidIdNumber}">BID-XX</td>
+                <td class="fw-semibold" th:text="${b.bidder != null} ? ${b.bidder.username} : '—'">user</td>
+                <td>
+                    <a th:if="${b.auction != null}"
+                       th:href="@{/auctions/{ref}(ref=${b.auction.referenceNumber})}"
+                       class="text-success text-decoration-none"
+                       th:text="${b.auction.title}">tytul</a>
+                </td>
+                <td class="text-end fw-semibold text-success"
+                    th:text="${#numbers.formatDecimal(b.amount, 1, 'POINT', 2, 'COMMA')} + ' PLN'">0</td>
+                <td class="text-muted small" th:text="${#temporals.format(b.bidTime, 'dd-MM-yyyy HH:mm')}">date</td>
+            </tr>
+            <tr th:if="${bids.totalElements == 0}">
+                <td colspan="5" class="text-center text-muted py-4">Brak ofert</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <nav th:if="${bids.totalPages > 1}" class="d-flex justify-content-center mt-3">
+        <ul class="pagination">
+            <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled'">
+                <a class="page-link" th:href="@{/admin/bids(page=${currentPage - 1})}">Poprzednia</a>
+            </li>
+            <li class="page-item disabled">
+                <span class="page-link" th:text="'Strona ' + (${currentPage} + 1) + ' / ' + ${bids.totalPages}">1</span>
+            </li>
+            <li class="page-item" th:classappend="${currentPage + 1 >= bids.totalPages} ? 'disabled'">
+                <a class="page-link" th:href="@{/admin/bids(page=${currentPage + 1})}">Następna</a>
+            </li>
+        </ul>
+    </nav>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>

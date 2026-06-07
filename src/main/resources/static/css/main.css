@@ -1,0 +1,145 @@
+/* ===== AukcjaHub - dodatkowe style ===== */
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #f7f8fa;
+    color: #1a1f2e;
+}
+
+.brand-badge {
+    display: inline-grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #198754, #146c43);
+    color: #fff;
+    font-size: 1.05rem;
+}
+
+/* Card hover effect */
+.auction-card {
+    transition: all .2s ease;
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.auction-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+    border-color: #cbd5e1;
+}
+.auction-card .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.auction-card .card-title {
+    font-weight: 600;
+    color: #1a1f2e;
+    text-decoration: none;
+}
+.auction-card .card-title:hover { color: #198754; }
+
+.price-tag {
+    color: #198754;
+    font-weight: 700;
+    font-size: 1.35rem;
+}
+
+.ref-number {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: .75rem;
+    color: #94a3b8;
+}
+
+/* Status badges */
+.badge-active { background-color: #d1fae5; color: #065f46; }
+.badge-finished { background-color: #e5e7eb; color: #374151; }
+
+/* Filters card */
+.filters-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.25rem;
+}
+
+/* Auth pages */
+.auth-wrapper {
+    min-height: calc(100vh - 280px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+.auth-card {
+    width: 100%;
+    max-width: 460px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 2.25rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,.04);
+}
+
+/* Auction detail */
+.detail-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.75rem;
+}
+
+.bid-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .65rem 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+.bid-row:last-child { border-bottom: none; }
+
+/* Empty state */
+.empty-state {
+    background: #fff;
+    border: 1px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #64748b;
+}
+
+/* Buttons - subtle greens */
+.btn-success { background-color: #198754; border-color: #198754; }
+.btn-success:hover { background-color: #146c43; border-color: #146c43; }
+.btn-outline-success { color: #198754; border-color: #198754; }
+.btn-outline-success:hover { background-color: #198754; border-color: #198754; }
+
+/* Form spacing */
+.form-label { font-weight: 500; font-size: .9rem; }
+
+/* Table */
+.table { background: #fff; }
+.table thead { background-color: #f8fafc; }
+.table thead th {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    color: #64748b;
+    font-weight: 600;
+}
+
+/* Nav-pills for admin tabs */
+.nav-pills .nav-link {
+    color: #475569;
+    border-radius: 8px;
+    padding: .5rem 1rem;
+}
+.nav-pills .nav-link.active {
+    background-color: #198754;
+}

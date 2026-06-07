@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${auction.title})}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: navbar}"></nav>
+<div th:replace="~{fragments/layout :: flashMessages}"></div>
+
+<main class="container py-4">
+    <a th:href="@{/}" class="btn btn-link text-decoration-none ps-0 mb-3">
+        <i class="bi bi-arrow-left"></i> Wróć do listy aukcji
+    </a>
+
+    <div class="row g-4">
+        <!-- ====== LEFT: szczegóły ====== -->
+        <div class="col-lg-8">
+            <div class="detail-card">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h1 class="h3 fw-bold mb-0" th:text="${auction.title}">Tytuł</h1>
+                    <span class="badge"
+                          th:classappend="${auction.auctionStatus.name() == 'ACTIVE'} ? 'badge-active' : 'badge-finished'"
+                          th:text="${auction.auctionStatus.name() == 'ACTIVE'} ? 'Aktywna' : 'Zakończona'">Aktywna</span>
+                </div>
+                <div class="ref-number mb-4" th:text="${auction.referenceNumber}">REF</div>
+
+                <p style="white-space: pre-wrap;" th:text="${auction.description}">Opis aukcji</p>
+
+                <div class="row mt-4 g-3">
+                    <div class="col-sm-6">
+                        <div class="text-muted small">Kategoria</div>
+                        <div class="fw-semibold" th:text="${auction.auctionCategory.name()}">KAT</div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="text-muted small">Cena wywoławcza</div>
+                        <div class="fw-semibold"
+                             th:text="${#numbers.formatDecimal(auction.startingPrice, 1, 'POINT', 2, 'COMMA')} + ' PLN'">0,00 PLN</div>
+                    </div>
+                    <div class="col-sm-6" th:if="${auction.owner != null}">
+                        <div class="text-muted small">Sprzedający</div>
+                        <div class="fw-semibold" th:text="${auction.owner.username}">user</div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="text-muted small">Koniec aukcji</div>
+                        <div class="fw-semibold"
+                             th:text="${#temporals.format(auction.endTime, 'dd-MM-yyyy HH:mm')}">date</div>
+                    </div>
+                </div>
+
+                <!-- Akcje dla właściciela lub administratora -->
+                <div th:if="${currentUser != null and
+                              (currentUser.username == auction.owner.username or currentUser.accType.name() == 'ADMIN')
+                              and auction.auctionStatus.name() == 'ACTIVE'}"
+                     class="mt-4 pt-4 border-top d-flex gap-2 flex-wrap">
+
+                    <form th:action="@{/auctions/{ref}/end(ref=${auction.referenceNumber})}" method="post">
+                        <button type="submit" class="btn btn-outline-secondary"
+                                onclick="return confirm('Zakończyć aukcję teraz?')">
+                            <i class="bi bi-stop-circle"></i> Zakończ aukcję
+                        </button>
+                    </form>
+
+                    <form th:if="${currentUser.accType.name() == 'ADMIN'}"
+                          th:action="@{/auctions/{ref}/delete(ref=${auction.referenceNumber})}" method="post"
+                          class="ms-auto">
+                        <button type="submit" class="btn btn-outline-danger"
+                                onclick="return confirm('Usunąć aukcję? Tej operacji nie można cofnąć.')">
+                            <i class="bi bi-trash"></i> Usuń aukcję
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== RIGHT: bid + historia ====== -->
+        <div class="col-lg-4">
+            <!-- Cena + formularz -->
+            <div class="detail-card mb-3">
+                <div class="text-muted small">Aktualna oferta</div>
+                <div class="price-tag" style="font-size: 1.9rem;"
+                     th:text="${#numbers.formatDecimal(auction.currentPrice, 1, 'POINT', 2, 'COMMA')} + ' PLN'">0,00 PLN</div>
+                <div class="small text-muted mb-3">
+                    <span th:text="${#lists.size(bids)}">0</span>
+                    <span th:text="${#lists.size(bids) == 1} ? 'oferta' : 'ofert'">ofert</span>
+                </div>
+
+                <!-- Formularz licytacji -->
+                <div th:if="${auction.auctionStatus.name() == 'ACTIVE' and currentUser != null and
+                              currentUser.username != auction.owner.username}">
+                    <form th:action="@{/auctions/{ref}/bid(ref=${auction.referenceNumber})}" method="post"
+                          th:object="${createBidRequest}">
+                        <label class="form-label">Twoja oferta (PLN)</label>
+                        <input type="number" step="0.01" min="0" required
+                               th:field="*{amount}"
+                               th:attr="placeholder='> ' + ${auction.currentPrice}"
+                               class="form-control mb-2"/>
+                        <button type="submit" class="btn btn-success w-100">
+                            <i class="bi bi-hammer"></i> Licytuj
+                        </button>
+                    </form>
+                </div>
+
+                <div th:if="${currentUser == null and auction.auctionStatus.name() == 'ACTIVE'}">
+                    <a th:href="@{/login}" class="btn btn-outline-success w-100">
+                        Zaloguj się, aby licytować
+                    </a>
+                </div>
+
+                <div th:if="${currentUser != null and currentUser.username == auction.owner.username}"
+                     class="alert alert-warning small mb-0">
+                    <i class="bi bi-info-circle"></i> Nie możesz licytować własnej aukcji.
+                </div>
+
+                <div th:if="${auction.auctionStatus.name() == 'FINISHED'}"
+                     class="alert alert-secondary small mb-0">
+                    Aukcja jest zakończona.
+                </div>
+            </div>
+
+            <!-- Historia ofert -->
+            <div class="detail-card">
+                <h6 class="fw-bold mb-3">Historia ofert</h6>
+                <div th:if="${#lists.isEmpty(bids)}" class="text-muted small">
+                    Brak ofert. Bądź pierwszy!
+                </div>
+                <div th:if="${not #lists.isEmpty(bids)}" style="max-height: 360px; overflow-y: auto;">
+                    <div th:each="bid : ${bids}" class="bid-row">
+                        <div>
+                            <div class="fw-semibold" th:text="${bid.bidder.username}">user</div>
+                            <div class="small text-muted"
+                                 th:text="${#temporals.format(bid.bidTime, 'dd-MM-yyyy HH:mm')}">data</div>
+                        </div>
+                        <div class="fw-semibold text-success"
+                             th:text="${#numbers.formatDecimal(bid.amount, 1, 'POINT', 2, 'COMMA')} + ' PLN'">0,00 PLN</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>
