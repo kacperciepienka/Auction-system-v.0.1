@@ -106,21 +106,6 @@ Aby zalogować się — wystarczy wpisać nazwę użytkownika na stronie `/login
 
 ---
 
-## 📋 Zgodność z wymaganiami zadania
-
-| Wymaganie | Status |
-|-----------|--------|
-| 3.1 REST endpointy użytkowników (POST/PUT/DELETE/GET) | ✅ |
-| 3.2 REST endpointy aukcji + filtrowanie | ✅ |
-| 3.3 REST endpoint składania ofert | ✅ |
-| 4 Interfejs użytkownika (Thymeleaf) | ✅ |
-| 5 DTO, walidacja, obsługa wyjątków, Swagger | ✅ |
-| 6.1 Paginacja i filtrowanie | ✅ |
-| 6.2 Sortowanie | ✅ |
-| 6.3 Logowanie operacji (`@Slf4j`) | ✅ |
-
----
-
 ## 🗄️ H2 Console
 
 URL: `http://localhost:8080/h2-console`
