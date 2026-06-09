@@ -68,6 +68,17 @@ pl.auction_system/
 
 # ▶️ Uruchomienie projektu
 
+Wygamania:
+* Java 21 JDK
+```bash
+winget install EclipseAdoptium.Temurin.21.JDK
+```
+
+* Git
+```bash
+winget install Git.Git
+```
+
 ## 1. Sklonuj repozytorium
 
 ```bash
