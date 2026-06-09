@@ -66,26 +66,61 @@ pl.auction_system/
 
 ---
 
-## ▶️ Uruchomienie
+# ▶️ Uruchomienie projektu
 
-### Wymagania
-* JDK 21
-* Maven 3.9+ (lub użyj `./mvnw` z projektu)
+## 1. Sklonuj repozytorium
 
-### Start
+```bash
+git clone https://github.com/kacperciepienka/Auction-system-v.0.1.git
+```
+
+Przejdź do katalogu projektu:
+
+```bash
+cd Auction-system-v.0.1
+```
+
+---
+
+## 2. Uruchom aplikację
+
+### IntelliJ IDEA
+
+Uruchom klasę:
+
+```
+AuctionSystemApplication
+```
+
+i wybierz **Run**.
+
+lub
+
+### Maven
+
+Windows:
+
+```bash
+mvnw.cmd spring-boot:run
+```
+
+Linux / macOS:
+
 ```bash
 ./mvnw spring-boot:run
 ```
 
-lub w IntelliJ IDEA: prawy klik na `AuctionSystemApplication` → **Run**.
+---
 
-Aplikacja dostępna pod:
+## 3. Otwórz aplikację
 
-| URL | Opis |
-|-----|------|
-| http://localhost:8080/ | Strona główna (Thymeleaf UI) |
-| http://localhost:8080/swagger-ui/index.html | Dokumentacja REST API (Swagger) |
-| http://localhost:8080/h2-console | Konsola bazy danych H2 (JDBC: `jdbc:h2:mem:auctionSystem`) |
+Po uruchomieniu dostępne są:
+
+| Adres | Opis |
+|-------------------------------|------------------------------|
+| http://localhost:8080/ | Strona główna |
+| http://localhost:8080/swagger-ui/index.html | Swagger REST API |
+| http://localhost:8080/h2-console | Konsola H2 |
 
 ---
 
