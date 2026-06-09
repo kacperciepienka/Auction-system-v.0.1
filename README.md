@@ -71,13 +71,13 @@ pl.auction_system/
 ## 1. Sklonuj repozytorium
 
 ```bash
-git clone https://github.com/kacperciepienka/Auction-system-v.0.1.git
+git clone https://github.com/kacperciepienka/AuctionHub.git
 ```
 
 Przejdź do katalogu projektu:
 
 ```bash
-cd Auction-system-v.0.1
+cd AuctionHub
 ```
 
 ---
