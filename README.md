@@ -68,16 +68,33 @@ pl.auction_system/
 
 # ▶️ Uruchomienie projektu
 
-Wygamania:
-* Java 21 JDK
-```bash
-winget install EclipseAdoptium.Temurin.21.JDK
-```
+## Wymagania
+
+Do uruchomienia projektu wymagane są:
 
 * Git
+* Docker Desktop
+
+Git można zainstalować z poziomu PowerShell / CMD:
+
 ```bash
 winget install Git.Git
 ```
+
+Docker Desktop można zainstalować poleceniem:
+
+```bash
+winget install Docker.DockerDesktop
+```
+
+Poprawność instalacji można sprawdzić poleceniami:
+
+```bash
+git --version
+docker --version
+```
+
+---
 
 ## 1. Sklonuj repozytorium
 
@@ -93,21 +110,49 @@ cd AuctionHub
 
 ---
 
-## 2. Uruchom aplikację
+## 2. Uruchomienie przez Docker
+
+Zbuduj obraz Docker:
+
+```bash
+docker build -t auctionhub .
+```
+
+Uruchom kontener:
+
+```bash
+docker run -p 8080:8080 auctionhub
+```
+
+Po uruchomieniu aplikacja będzie dostępna pod adresem:
+
+```text
+http://localhost:8080
+```
+---
+
+## 3. Alternatywne uruchomienie klasyczne
+
+Projekt można również uruchomić klasycznie przez IntelliJ IDEA lub Maven Wrapper.
+
+W tym wariancie wymagane jest zainstalowanie Java 21 JDK:
+
+```bash
+winget install EclipseAdoptium.Temurin.21.JDK
+java --version
+```
 
 ### IntelliJ IDEA
 
 Uruchom klasę:
 
-```
+```text
 AuctionSystemApplication
 ```
 
 i wybierz **Run**.
 
-lub
-
-### Maven
+### Maven Wrapper
 
 Windows:
 
@@ -121,7 +166,6 @@ Linux / macOS:
 ./mvnw spring-boot:run
 ```
 
----
 
 ## 3. Otwórz aplikację
 
