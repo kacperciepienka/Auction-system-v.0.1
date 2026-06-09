@@ -68,16 +68,27 @@ pl.auction_system/
 
 # ▶️ Uruchomienie projektu
 
+Wygamania:
+* Java 21 JDK
+```bash
+winget install EclipseAdoptium.Temurin.21.JDK
+```
+
+* Git
+```bash
+winget install Git.Git
+```
+
 ## 1. Sklonuj repozytorium
 
 ```bash
-git clone https://github.com/kacperciepienka/Auction-system-v.0.1.git
+git clone https://github.com/kacperciepienka/AuctionHub.git
 ```
 
 Przejdź do katalogu projektu:
 
 ```bash
-cd Auction-system-v.0.1
+cd AuctionHub
 ```
 
 ---
