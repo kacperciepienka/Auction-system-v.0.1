@@ -3,7 +3,7 @@
 <head th:fragment="head(pageTitle)">
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title th:text="${pageTitle} ?: 'AukcjaHub'">AukcjaHub</title>
+    <title th:text="${pageTitle} ?: 'AuctionHub'">AuctionHub</title>
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Bootstrap Icons -->
@@ -21,7 +21,7 @@
     <div class="container">
         <a class="navbar-brand fw-bold d-flex align-items-center" th:href="@{/}">
             <span class="brand-badge me-2"><i class="bi bi-hammer"></i></span>
-            AukcjaHub
+            AuctionHub
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
             <span class="navbar-toggler-icon"></span>
@@ -87,7 +87,7 @@
         <div class="row align-items-center">
             <div class="col-md-6 text-muted small">
                 © <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2026</span>
-                AukcjaHub — Projekt zaliczeniowy "Tworzenie usług sieciowych REST"
+                AuctionHub — Projekt zaliczeniowy "Tworzenie usług sieciowych REST"
             </div>
             <div class="col-md-6 text-md-end small text-muted">
                 <a class="text-decoration-none text-muted me-3" href="/swagger-ui/index.html">Swagger / REST API</a>
