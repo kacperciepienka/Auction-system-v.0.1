@@ -9,7 +9,7 @@
                 <relativePath/>
         </parent>
         <groupId>pl.auction-system</groupId>
-        <artifactId>auction-system</artifactId>
+        <artifactId>AuctionHub</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <name/>
         <description/>
